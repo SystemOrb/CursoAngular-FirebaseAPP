@@ -1,0 +1,50 @@
+<h1>
+Crear heroe
+</h1>
+<div class="container">
+  <a
+  [routerLink]="['/home']"
+  class="btn btn-warning">
+    Regresar
+  </a>
+  <br><br>
+  <form (ngSubmit)='saveForm(form)'  #form="ngForm" >
+  <div class="form-group">
+    <label for="exampleInputEmail1">Heroe</label>
+    <input
+    type="text"
+    class="form-control"
+    name="heroeName"
+    [(ngModel)]="heroData.name"
+    required
+    #hero="ngModel"
+    placeholder="Ej:Thor">
+
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Casa</label>
+    <input type="text"
+    class="form-control"
+    [(ngModel)]="heroData.house"
+    required
+    name="house"
+    #house="ngModel"
+    placeholder="Ej: Marvel | DC">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Caracteristicas</label>
+    <textarea
+    class="form-control"
+    [(ngModel)]="heroData.skills"
+    name="info"
+    #info="ngModel" ></textarea>
+  </div>
+
+  <button
+  type="submit"
+  [disabled]="!form.valid"
+  class="btn btn-primary">Guardar cambios</button>
+</form>
+
+</div>
+{{ form.valid }}

@@ -1,0 +1,41 @@
+
+  <a
+  target="_self"
+  [routerLink]="['/hero','nuevo']"
+  class="btn btn-block btn-outline-primary"
+  >
+    Agregar
+  </a>
+<br>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Casa</th>
+    <th scope="col">Caracteristicas</th>
+    <th scope="col" >Opciones</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let heroe of HeroData | firebase; let i = index" >
+    <th scope="row">{{ i+1 }}</th>
+    <td>{{ HeroData[heroe].nombre }}</td>
+    <td>{{ HeroData[heroe].house }}</td>
+    <td>{{ HeroData[heroe].skills }}</td>
+    <td>
+      <button
+      (click)="deleteHero(heroe)"
+      class="btn btn-danger">
+        Eliminar
+      </button>
+      <button
+      [routerLink]="['/hero',heroe]"
+      style="margin-left:1em"
+      class="btn btn-primary">
+        Editar
+      </button>
+    </td>
+  </tr>
+</tbody>
+</table>
